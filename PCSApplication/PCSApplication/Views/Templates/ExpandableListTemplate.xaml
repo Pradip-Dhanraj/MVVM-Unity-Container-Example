@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PCSApplication.Views.Templates.ExpandableListTemplate">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding menu}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Medium"
+                   TextColor="Black"
+                       Grid.Row="0">
+                <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            <ListView ItemsSource="{Binding submenu}"
+                      x:Name="listsubmenu"
+                      IsVisible="False"
+                      Grid.Row="1"
+                      Margin="0"
+                      ItemTapped="listsubmenu_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding .}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontSize="Micro"
+                                   TextColor="Black">
+                                <Label.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android">40</On>
+                                        <On Platform="iOS" Value="40"/>
+                                    </OnPlatform>
+                                </Label.HeightRequest>
+                            </Label>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        
+    </ContentView.Content>
+</ContentView>

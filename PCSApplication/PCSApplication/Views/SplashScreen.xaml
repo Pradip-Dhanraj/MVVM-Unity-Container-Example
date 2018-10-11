@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffgif="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="PCSApplication.Views.SplashScreen">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column">
+            <!--<ff:SvgCachedImage Source="resource://PCSApplication.Assets.cargo.svg"
+                               FlexLayout.Basis="100%"
+                               FlexLayout.Order="1"/>-->
+            <ffgif:CachedImage Source="resource://PCSApplication.Assets.github.gif"
+                               FlexLayout.Basis="100%"
+                               FlexLayout.Order="1"/>
+            <ActivityIndicator x:Name="activity"
+                               IsVisible="False"
+                               FlexLayout.Order="1"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="CenterAndExpand"/>
+            
+        </FlexLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

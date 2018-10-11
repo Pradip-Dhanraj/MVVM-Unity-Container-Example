@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PCSApplication.Pages.HomePage"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions">
+    <!--<ContentPage.ToolbarItems>
+        --><!--<ToolbarItem Text ="Item 1"  
+                Priority="0" Order="Primary" />
+        <ToolbarItem Text ="Item 2"  
+        
+              Priority="1" Order="Primary" />--><!--
+        <ToolbarItem Text ="Item 2"  
+              Priority="1" Order="Secondary" />
+        <ToolbarItem Text ="Item 2"  
+              Priority="1" Order="Secondary" />
+        --><!--<ToolbarItem Text ="Item 2"  
+              Priority="1" Order="Secondary" />--><!--
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <FlexLayout Direction="Column">
+            <FlexLayout FlexLayout.Basis="35%"
+                        FlexLayout.Order="1"
+                        Direction="Row">
+                <!--<cv:CarouselView ItemsSource="{Binding ListOfMenu}" x:Name="Carousellist"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Fill"
+                                 FlexLayout.Grow="1">
+                    <cv:CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding base64}"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill"
+                                   FlexLayout.Grow="1"
+                                   Aspect="AspectFit"/>
+                        </DataTemplate>
+                    </cv:CarouselView.ItemTemplate>
+                </cv:CarouselView>-->
+                <controls:CarouselViewControl ItemsSource="{Binding ListOfMenu}"
+                                              ShowIndicators="True"
+                                              ShowArrows="False"
+                                              IndicatorsTintColor="Black"
+                                              CurrentPageIndicatorTintColor="White"
+                                              HorizontalOptions="Center"
+                                              VerticalOptions="Fill"
+                                              FlexLayout.Grow="1"
+                                              BackgroundColor="Black">
+                    <controls:CarouselViewControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding banner_list}"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill"
+                                   FlexLayout.Grow="1"
+                                   Aspect="AspectFit"
+                                   Margin="0,0,0,10"/>
+                        </DataTemplate>
+                    </controls:CarouselViewControl.ItemTemplate>
+                </controls:CarouselViewControl>
+
+                <!--<Image Source="https://vignette.wikia.nocookie.net/dbz-dokkanbattle/images/6/68/Leaping_Even_Higher_Super_Saiyan_Goku.png/revision/latest?cb=20160830122933"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Fill"
+                       FlexLayout.Grow="1"
+                       Aspect="AspectFit"/>-->
+                <!--<Label Text="HomePage"
+                       TextColor="Black"
+                       FlexLayout.Grow="1"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       BackgroundColor="Aqua"/>-->
+            </FlexLayout>
+            <flv:FlowListView x:Name="listy" 
+                                  FlowColumnCount="2" 
+                                  SeparatorVisibility="None"
+                                  HasUnevenRows="true" 
+                                  FlowItemsSource="{Binding ListOfMenu}"
+                                  FlowItemTappedCommand="{Binding HomeMenuTapCommand}"
+                                  FlexLayout.Grow="1"
+                                  FlexLayout.Order="2">
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <!--<StackLayout Padding="0">
+                                <Label Text="{Binding Menu_name}"
+                                       HorizontalTextAlignment="Center"/>-->
+                        <StackLayout>
+                            <Image Source="{Binding base64}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="250"
+                                       Margin="10"/>
+                            <Label Text="{Binding Menu_name}"
+                                   HorizontalTextAlignment="Center"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"/>
+                        </StackLayout>
+                                
+                            <!--</StackLayout>-->
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>
+                <!--<flv:FlowListView x:Name="flowListView" 
+                                  FlowColumnCount="2" 
+                                  SeparatorVisibility="None" 
+                                  RowHeight="100"
+				                  FlowUseAbsoluteLayoutInternally="false" 
+                                  FlowColumnExpand="None"
+			                      IsGroupingEnabled="true"
+			                      FlowItemsSource="{Binding ListOfMenu}">
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <Label HorizontalOptions="FillAndExpand" 
+                                   VerticalOptions="FillAndExpand"
+						           XAlign="Center" 
+                                   YAlign="Center" 
+                                   Text="Test" 
+                                   FontSize="Large"
+                                   LineBreakMode="CharacterWrap" 
+                                   BackgroundColor="Black"/>
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>-->
+        </FlexLayout>
+        <!--<ScrollView>
+        <StackLayout>
+            <ff:SvgCachedImage Source="{StaticResource LoginButtonIcon}"
+                               x:Name="image"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+            <ff:SvgCachedImage Source="{StaticResource LoginButtonIcon}"
+                               x:Name="image2"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+            <ff:SvgCachedImage Source="{StaticResource LoginButtonIcon}"
+                               x:Name="image3"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+            <Image Source="profile.png"
+                   x:Name="image4"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Aspect="AspectFit"/>
+        </StackLayout>
+        </ScrollView>-->
+        <!--<FlexLayout Direction="Column">
+            <Frame FlexLayout.Basis="30">
+                <FlexLayout>
+                    <Label Text="HomePage with Toolbar"
+                           FlexLayout.AlignSelf="Center"/>
+                </FlexLayout>
+            </Frame>
+        </FlexLayout>-->
+    </ContentPage.Content>
+</ContentPage>

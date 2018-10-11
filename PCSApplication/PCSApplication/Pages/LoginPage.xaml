@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:advanceenrty="clr-namespace:PCSApplication.Controls"
+             x:Class="PCSApplication.Pages.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="#080851" />
+                <Setter Property="Padding" Value="10, 0"/>
+            </Style>
+            <Style TargetType="Grid">
+                <Setter Property="Padding" Value="20, 5"/>
+            </Style>
+
+            <OnPlatform x:TypeArguments="x:Double" Android="80" iOS="140" x:Key="HeightOfLogin" />
+            <OnPlatform x:TypeArguments="Thickness" Android="30,0" iOS="40,0" x:Key="LoginButtonMargin" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="ColumnReverse">
+            <ff:SvgCachedImage Source="{StaticResource LogoBannerIcon}"
+                               VerticalOptions="Center"
+                               FlexLayout.Basis="20%"
+                               FlexLayout.Order="3"
+                               BackgroundColor="Transparent"/>
+            <StackLayout FlexLayout.Grow="1"
+                         FlexLayout.Order="2">
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <advanceenrty:CustomEntry Text="{Binding Username}"
+                                              HorizontalOptions="Fill"
+                                              VerticalOptions="Center"
+                                              BorderColor="White"
+                                              LeftIconImage="{StaticResource profileIcon}"
+                                              Grid.Row="0"/>
+                    <advanceenrty:CustomEntry HorizontalOptions="Fill"
+                                              Text="{Binding Password}"
+                                      VerticalOptions="Center"
+                                      BorderColor="White"
+                                      LeftIconImage="{StaticResource profileIcon}"
+                                      RightIconImage="{StaticResource ShowPasswordIcon}"
+                                      IsPassword="{Binding ShowPass}"
+                                          Grid.Row="1"/>
+                    <BoxView BackgroundColor="Transparent"
+                         VerticalOptions="Center"
+                         HorizontalOptions="End"
+                         Grid.Row="1">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowPasswordCommand}"
+                                              CommandParameter="showpass"
+                                              NumberOfTapsRequired="1"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <ff:SvgCachedImage Source="{StaticResource LoginButtonIcon}"
+                                       VerticalOptions="Center"
+                                       Margin="{StaticResource LoginButtonMargin}"
+                                       HeightRequest="{StaticResource HeightOfLogin}"
+                                       Grid.Row="2">
+                        <ff:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigatioHomePageCommand}"/>
+                        </ff:SvgCachedImage.GestureRecognizers>
+                    </ff:SvgCachedImage>
+                </Grid>
+                
+            </StackLayout>
+            <Frame FlexLayout.Order="1"
+                   FlexLayout.Basis="10%"
+                   Padding="0"
+                   CornerRadius="0"
+                   BackgroundColor="#56569f">
+                <FlexLayout Direction="Row"
+                            FlexLayout.Grow="1"
+                            BackgroundColor="Transparent">
+                    <Label Style="{StaticResource BottomNavBarStyle}"
+                           FlexLayout.AlignSelf="Center"
+                           HorizontalTextAlignment="Center"
+                           FlexLayout.Grow="1"/>
+                </FlexLayout>
+                
+            </Frame>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

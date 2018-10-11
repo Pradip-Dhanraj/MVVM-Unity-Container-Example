@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PCSApplication.Views.Templates.ItemsDetailsTemplate">
+  <ContentView.Content>
+        <FlexLayout Direction="Row"
+                    HeightRequest="50">
+            <Label FlexLayout.Basis="16%"
+                   Text="{Binding imono}"/>
+            <Label FlexLayout.Basis="25%"
+                   Text="{Binding vessel_name}"/>
+            <Label FlexLayout.Basis="16%"
+                   Text="{Binding call_sign}"/>
+            <Label FlexLayout.Basis="25%"
+                   Text="{Binding vessel_type}"/>
+            <Image FlexLayout.Basis="16%"
+                   Source="{Binding action}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedAsync"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </FlexLayout>
+    </ContentView.Content>
+</ContentView>

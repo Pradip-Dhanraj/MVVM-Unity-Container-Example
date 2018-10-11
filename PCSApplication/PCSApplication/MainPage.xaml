@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff1="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+              xmlns:ffgif="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="PCSApplication.MainPage">
+    <!--<NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10" HorizontalOptions="Center">
+            <Image Source="eye.png">
+            </Image>
+            <Label Text="3.2.0" FontSize="16" TextColor="Black" VerticalTextAlignment="Center" />
+        </StackLayout>
+    </NavigationPage.TitleView>-->
+    <StackLayout>
+        <!--<Image Source="icon"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="Fill"/>-->
+        <!-- Place new controls here -->
+        <ffgif:CachedImage Source="resource://PCSApplication.Assets.github.gif"
+                           HeightRequest="500"
+                           WidthRequest="500"/>
+
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="Start" 
+           FontSize="Large"/>
+    </StackLayout>
+
+</ContentPage>
